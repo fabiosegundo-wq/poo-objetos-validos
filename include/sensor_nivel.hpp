@@ -4,12 +4,24 @@
 #include <string>
 
 class SensorNivel {
-public:
-    std::string tag;
-    double valor;
-    std::string unidade;
+private:
+    std::string tag_;
+    double valor_;
+    std::string unidade_;
+    bool ativo_ = false;
+    int totalLeituras_ = 0;
 
+public:
     SensorNivel(std::string tagInicial, double valorInicial, std::string unidadeInicial = "");
+
+    std::string tag() const;
+    double valor() const;
+    std::string unidade() const;
+    bool estaAtivo() const;
+    void ativar();
+    void desativar();
+    int totalLeituras() const;
+    bool registrarLeitura(double valor);
     std::string resumo() const;
 };
 
